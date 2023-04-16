@@ -1,0 +1,20 @@
+.todo-list__add-btn {
+  background-color: rgb(0, 151, 189);
+  padding: 13px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: rgb(0, 186, 233);
+  }
+
+  &-icon {
+    width: 18px;
+  }
+
+  &-desc {
+    margin-left: 15px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}

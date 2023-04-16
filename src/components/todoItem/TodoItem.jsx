@@ -1,27 +1,26 @@
 import React from 'react';
 import './todoItem.scss';
+import TodoDeleteBtn from '../todoDeleteBtn/TodoDeleteBtn';
+import TodoInputCheckbox from '../todoCheckbox/TodoInputCheckbox';
 
-const TodoItem = () => {
+const TodoItem = (props) => {
+  const { id, title, isDone, todos, setTodos } = props;
+
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   return (
     <li className="todo-list__todos-item todos-item">
-      <div className="todos-item__checkbox-box">
-        <input
-          type="checkbox"
-          name="todo-checkbox"
-          id="todo-checkbox"
-          className="todos-item__checkbox"
-        />
-        <label htmlFor="todo-checkbox" className="todos-item__todo-title">
-          Wash the cat
-        </label>
-      </div>
-      <button className="todos-item__delete-btn">
-        <img
-          className="todos-item__delete-btn-icon"
-          src="./img/icons/trash.svg"
-          alt="Your image was stolen("
-        />
-      </button>
+      <TodoInputCheckbox
+        id={id}
+        todos={todos}
+        title={title}
+        isDone={isDone}
+        saveTodos={saveTodos}
+      />
+      <TodoDeleteBtn id={id} todos={todos} saveTodos={saveTodos} />
     </li>
   );
 };

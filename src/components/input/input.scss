@@ -1,0 +1,17 @@
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  .label {
+    color: gray;
+    font-size: 12px;
+  }
+
+  .input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 18px;
+  }
+}
