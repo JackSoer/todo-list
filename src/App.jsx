@@ -4,6 +4,7 @@ import Home from './pages/home/Home';
 import AddTodo from './pages/addTodo/AddTodo';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { useState } from 'react';
+import EditTodo from './pages/editTodo/EditTodo';
 
 function App() {
   const [todos, setTodos] = useState(
@@ -23,6 +24,10 @@ function App() {
     {
       path: '/addTodo',
       element: <AddTodo todos={todos} saveTodos={saveTodos} />,
+    },
+    {
+      path: '/editTodo/:id',
+      element: <EditTodo todos={todos} saveTodos={saveTodos} />,
     },
   ]);
 
