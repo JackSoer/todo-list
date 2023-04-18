@@ -15,7 +15,10 @@ const TodoItem = (props) => {
         isDone={isDone}
         saveTodos={saveTodos}
       />
-      <TodoDeleteBtn id={id} todos={todos} saveTodos={saveTodos} />
+      <div className="todos-item__options">
+        <button className="todos-item__edit-btn">Edit</button>
+        <TodoDeleteBtn id={id} todos={todos} saveTodos={saveTodos} />
+      </div>
     </li>
   );
 };

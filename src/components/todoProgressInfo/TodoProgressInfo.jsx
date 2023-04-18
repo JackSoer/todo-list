@@ -26,7 +26,7 @@ const TodoProgressInfo = ({ todos }) => {
     <div className="todo-list__extra-info">
       <p className="todo-list__finished-info">{finishedTodosCount} Finished</p>
       <p className="todo-list__progress-info">
-        {inProgressTodosCount} in Progress
+        {inProgressTodosCount} In Progress
       </p>
     </div>
   );
