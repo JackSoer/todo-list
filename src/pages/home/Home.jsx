@@ -2,11 +2,11 @@ import React from 'react';
 import './home.scss';
 import TodoList from '../../components/todoList/TodoList';
 
-const Home = () => {
+const Home = ({ todos, saveTodos }) => {
   return (
     <div className="home">
       <div className="container">
-        <TodoList />
+        <TodoList todos={todos} saveTodos={saveTodos}/>
       </div>
     </div>
   );

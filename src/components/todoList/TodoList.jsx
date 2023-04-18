@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './todoList.scss';
 import { Link } from 'react-router-dom';
 
@@ -6,14 +6,7 @@ import TodoItem from '../todoItem/TodoItem';
 import TodoProgressInfo from '../todoProgressInfo/TodoProgressInfo';
 import TodoAddBtn from '../todoAddBtn/TodoAddBtn';
 
-const TodoList = () => {
-  const [todos, setTodos] = useState(
-    JSON.parse(localStorage.getItem('todos')) || [
-      { id: 1, title: 'Wash the cat', isDone: false },
-      { id: 2, title: 'Wash the cat', isDone: true },
-    ]
-  );
-
+const TodoList = ({ todos, saveTodos }) => {
   return (
     <div className="todo-list">
       <h1 className="todo-list__title">Your Tasks</h1>
@@ -26,7 +19,7 @@ const TodoList = () => {
               title={todo.title}
               isDone={todo.isDone}
               todos={todos}
-              setTodos={setTodos}
+              saveTodos={saveTodos}
             />
           ))}
         </ul>

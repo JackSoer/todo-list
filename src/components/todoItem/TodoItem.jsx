@@ -1,15 +1,10 @@
 import React from 'react';
 import './todoItem.scss';
 import TodoDeleteBtn from '../todoDeleteBtn/TodoDeleteBtn';
-import TodoInputCheckbox from '../todoCheckbox/TodoInputCheckbox';
+import TodoInputCheckbox from '../todoInputCheckbox/TodoInputCheckbox';
 
 const TodoItem = (props) => {
-  const { id, title, isDone, todos, setTodos } = props;
-
-  const saveTodos = (newTodos) => {
-    localStorage.setItem('todos', JSON.stringify(newTodos));
-    setTodos(newTodos);
-  };
+  const { id, title, isDone, todos, saveTodos } = props;
 
   return (
     <li className="todo-list__todos-item todos-item">

@@ -1,19 +1,28 @@
 import './Scss/reset.scss';
 import './Scss/general.scss';
-import TodoList from './components/todoList/TodoList';
 import Home from './pages/home/Home';
 import AddTodo from './pages/addTodo/AddTodo';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { useState } from 'react';
 
 function App() {
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem('todos')) || []
+  );
+
+  const saveTodos = (newTodos) => {
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+    setTodos(newTodos);
+  };
+
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Home />,
+      element: <Home todos={todos} saveTodos={saveTodos} />,
     },
     {
       path: '/addTodo',
-      element: <AddTodo />,
+      element: <AddTodo todos={todos} saveTodos={saveTodos} />,
     },
   ]);
 
